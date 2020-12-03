@@ -1,10 +1,17 @@
 body {
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1b1818;
 }
 
 code {
@@ -12,6 +19,53 @@ code {
     monospace;
 }
 
+header {
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  /* margin-bottom: 4%; */
+  background-color: #141414;
+}
+
+.icon_logoNetflix{
+  width: 8rem;
+  margin-left: 2%;
+}
+
+.titleIndicator{
+  color: #ffff;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin-top: 7rem;
+}
+
+.box_films{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.box_series{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.box_content{
+  margin: 3rem;
+}
+
 .netflixImages {
-  width: 8%;
+  width: 20rem;
+}
+
+
+.netflixTitles{
+  color: #ffff;
+  font-size: 16.7px;
 }

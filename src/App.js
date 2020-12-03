@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
+import Logo from './logo.png';
 import styled from 'styled-components';
 
 
@@ -81,21 +82,21 @@ class Netflix extends Component {
     return(
       <Container>
         <header>
-          <a className="aHref_reload">
-            <img className="icon_logoNetflix" src="" alt="" />
-          </a>
+            <img className="icon_logoNetflix" src={Logo} alt="Logo Netflix" />
         </header>
+        <h1 className="titleIndicator">Filmes</h1>
         <div className="box_films">
           {this.state.movies.map((item, index) => (
-            <div key={index}>
+            <div className="box_content" key={index}>
               <img className="netflixImages" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/>
               <p className="netflixTitles">{item.title}</p>
             </div>
           ))}
         </div>
+        <h1 className="titleIndicator">Series</h1>
         <div className="box_series">
           {this.state.shows.map((item, index) => (
-            <div key={index}>
+            <div className="box_content" key={index}>
               <img className="netflixImages" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/>
               <p className="netflixTitles">{item.original_name}</p>
             </div>
