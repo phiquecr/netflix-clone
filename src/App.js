@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
 import Logo from './logo.png';
-import styled from 'styled-components';
-
-
-const Container = styled.div`
-`;
 
 
 
@@ -15,7 +10,8 @@ class Netflix extends Component {
 
     movies: [],
     shows: [],
-    images: []
+    images: [],
+    date: []
     
   }
 
@@ -23,7 +19,7 @@ class Netflix extends Component {
 
 
     const responseMovies = await axios.get(`${process.env.REACT_APP_API}/movies`);
-    // console.log(responseMovies.data);
+    console.log(responseMovies.data);
 
     const filmes = responseMovies.data.map((item) => {
       return {
@@ -40,13 +36,14 @@ class Netflix extends Component {
       images: responseMovies.data.poster_path
     });
 
+
     // console.log(filmes);
 
 
 
     
     const responseShows = await axios.get(`${process.env.REACT_APP_API}/shows`);
-    // console.log(responseShows.data);
+    console.log(responseShows.data);
 
     const series = responseShows.data.map((item) => {
       return {
@@ -80,7 +77,7 @@ class Netflix extends Component {
 
   render() {
     return(
-      <Container>
+      <div>
         <header>
             <img className="icon_logoNetflix" src={Logo} alt="Logo Netflix" />
         </header>
@@ -89,7 +86,9 @@ class Netflix extends Component {
           {this.state.movies.map((item, index) => (
             <div className="box_content" key={index}>
               <img className="netflixImages" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/>
+              <p className="releaseDate_now">{item.release_date}</p>
               <p className="netflixTitles">{item.title}</p>
+              
             </div>
           ))}
         </div>
@@ -98,12 +97,12 @@ class Netflix extends Component {
           {this.state.shows.map((item, index) => (
             <div className="box_content" key={index}>
               <img className="netflixImages" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/>
+              <p className="releaseDate_now">{item.first_air_date}</p>
               <p className="netflixTitles">{item.original_name}</p>
             </div>
           ))}
         </div>
-          
-      </Container>
+      </div>         
     )
   }
 }
