@@ -37,7 +37,6 @@ class Netflix extends Component {
     });
 
 
-    // console.log(filmes);
 
 
 
@@ -60,7 +59,7 @@ class Netflix extends Component {
       images: responseMovies.data.poster_path
     });
 
-    // console.log(series);
+
 
 
 
@@ -85,7 +84,7 @@ class Netflix extends Component {
         <div className="box_films">
           {this.state.movies.map((item, index) => (
             <div className="box_content" key={index}>
-              <img className="netflixImages" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/>
+              <a href=""><img className="netflixImages" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/></a>
               <p className="releaseDate_now">{item.release_date}</p>
               <p className="netflixTitles">{item.title}</p>
               
@@ -96,7 +95,7 @@ class Netflix extends Component {
         <div className="box_series">
           {this.state.shows.map((item, index) => (
             <div className="box_content" key={index}>
-              <img className="netflixImages" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/>
+              <a href=""><img className="netflixImages" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/></a>
               <p className="releaseDate_now">{item.first_air_date}</p>
               <p className="netflixTitles">{item.original_name}</p>
             </div>
